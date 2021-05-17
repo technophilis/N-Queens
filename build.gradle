@@ -28,3 +28,9 @@ test {
     }
 }
 
+apply plugin: 'application'
+mainClassName = "com.devgator.chess.nqueens.NQueensCommandLineDriver"
+
+run {
+    standardInput = System.in
+}
