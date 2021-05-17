@@ -2,7 +2,8 @@ plugins {
     id 'java'
 }
 
-group 'com.compilerworks.nqueen'
+group 'com.devgator.nqueens'
+
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -11,9 +12,19 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
 }
 
 test {
     useJUnitPlatform()
+
+    afterSuite { desc, result ->
+        if (!desc.parent)
+            println("${result.resultType} " +
+                "(${result.testCount} tests, " +
+                "${result.successfulTestCount} successes, " +
+                "${result.failedTestCount} failures, " +
+                "${result.skippedTestCount} skipped)")
+    }
 }
+
