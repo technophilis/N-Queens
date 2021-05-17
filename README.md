@@ -1,7 +1,5 @@
 ### Project Overview
-This repo provides a backtracking implementation of the popular N-Queens with an added contrains: no 3 queens should form a straight line at any angle.
-For this implementation it relies on a basic chess framework that provides appropriate abstration for solving chess problems.
-The framework could be easily extended to include other algorithms for the N-Queens problem or other chess problems.
+This repo provides a backtracking implementation of the popular N-Queens with an added contrains: no 3 queens should form a straight line at any angle. The implementation relies on a basic chess framework that provides appropriate abstration for solving chess problems. The framework could be easily extended to include other algorithms for the N-Queens problem or other chess problems.
 
 ### Build Without Tests
 ```
