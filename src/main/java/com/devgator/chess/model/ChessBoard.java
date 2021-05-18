@@ -80,7 +80,7 @@ public class ChessBoard {
         for (ChessPiece[] row : squares) {
             for (ChessPiece piece : row) {
                 if (piece != null) {
-                    stringBuilder.append(piece.toString());
+                    stringBuilder.append(piece);
                 } else {
                     stringBuilder.append(".");
                 }

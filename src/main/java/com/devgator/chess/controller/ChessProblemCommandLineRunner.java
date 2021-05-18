@@ -2,15 +2,14 @@ package com.devgator.chess.controller;
 
 import com.devgator.chess.view.ChessProblemCommandLineUserInterface;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * A command line interface implementation of a chess problem solver.
- * It uses System.in to get input from the user and System.out to display output.
+ * It uses System.in to get input from the user and System.out to display messages.
  */
 public class ChessProblemCommandLineRunner extends ChessProblemRunner {
-
-    private final Scanner scanner;
 
     /**
      * Creates a new chess problem runner that uses the command line to interact with the user.
@@ -18,19 +17,32 @@ public class ChessProblemCommandLineRunner extends ChessProblemRunner {
      */
     public ChessProblemCommandLineRunner(ChessProblemSolver solver) {
         super(solver, new ChessProblemCommandLineUserInterface());
-        scanner = new Scanner(System.in);
     }
 
     @Override
     public int getUserInputAsInt(String message) {
-        System.out.print(message);
-        return scanner.nextInt();
+        do {
+            try {
+                System.out.print(message);
+                Scanner scanner = new Scanner(System.in);
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number.");
+            }
+        } while (true);
     }
 
     @Override
     public char getUserInputAsChar(String message) {
-        System.out.print(message);
-        return scanner.next().charAt(0);
+        do {
+            try {
+                System.out.print(message);
+                Scanner scanner = new Scanner(System.in);
+                return scanner.next().charAt(0);
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a character.");
+            }
+        } while (true);
     }
 
 }

@@ -15,6 +15,6 @@ public class ChessProblemCommandLineUserInterface implements ChessProblemUserInt
 
     @Override
     public void showChessBoard(ChessBoard chessBoard) {
-        System.out.println(chessBoard.toString());
+        System.out.print(chessBoard.toString());
     }
 }
