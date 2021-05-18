@@ -3,6 +3,8 @@ package com.devgator.chess.controller;
 import com.devgator.chess.model.ChessBoard;
 import com.devgator.chess.view.ChessProblemUserInterface;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -45,8 +47,13 @@ public abstract class ChessProblemRunner {
     public void run() {
         int N = getUserInputAsInt("Enter board size: ");
         visualizer.showMessage(String.format("Using %s on a board of size %d ...", solver.getSolverName(), N));
-        List<ChessBoard> solutions = solver.findMultipleSolutions(N);
-        visualizer.showMessage(String.format("Found %d solutions.", solutions.size()));
+        List<ChessBoard> solutions = Collections.emptyList();
+        try {
+            solutions = solver.findMultipleSolutions(N);
+            visualizer.showMessage(String.format("Found %d solutions.", solutions.size()));
+        } catch (IllegalArgumentException e) {
+            visualizer.showMessage(e.getMessage());
+        }
         for (ChessBoard board : solutions) {
             char choice = getUserInputAsChar("Enter 'N' to show the next solution (anything else to stop): ");
             if (choice != 'N') {

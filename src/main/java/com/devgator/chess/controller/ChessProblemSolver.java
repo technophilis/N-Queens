@@ -16,8 +16,9 @@ public interface ChessProblemSolver {
      * Finds the list of solutions for a given chess problem.
      * @param N chess board size
      * @return a list of solutions
+     * @throws IllegalArgumentException if N doesn't satisfy the problem requirements
      */
-    List<ChessBoard> findMultipleSolutions(int N);
+    List<ChessBoard> findMultipleSolutions(int N) throws IllegalArgumentException;
 
     /**
      * Returns name of the problem solver
