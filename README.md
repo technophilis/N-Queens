@@ -18,9 +18,12 @@ This repo provides a backtracking implementation of the popular N-Queens with an
 Follow the instructions displayed in the console.
 
 ### Code Base
+
+#### N-Queens backtracking solver
+The `nqueens` package contains the implementation of the N-Queens problem with the constraints described in the project overview.
+
+#### Chess Problem Framework
 The project uses the MVC design pattern so it contains 3 main packages:
 - `model`: basic abstraction of a chess board
 - `view`: basic abstraction of a chess board user interface plus a text-based implementation
 - `controller`: a runner that takes input from the user and displays output in the view
-
-The project also includes a 4th package (`nqueens`) with an implementation of a special case of the N-Queens problem as described in the overview.
