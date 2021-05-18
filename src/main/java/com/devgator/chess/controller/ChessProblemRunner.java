@@ -27,14 +27,14 @@ public abstract class ChessProblemRunner {
 
     /**
      * Shows the given message to the user and returns the input entered as an int
-     * @param message to display to the user
+     * @param message the message to display to the user
      * @return user input
      */
     public abstract int getUserInputAsInt(String message);
 
     /**
      * Shows the given message to the user and returns the input entered as a char
-     * @param message to display to the user
+     * @param message the message to display to the user
      * @return user input
      */
     public abstract char getUserInputAsChar(String message);

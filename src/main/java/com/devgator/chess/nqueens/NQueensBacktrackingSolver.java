@@ -9,7 +9,7 @@ import java.util.List;
 import static com.devgator.chess.model.ChessPiece.QUEEN;
 
 /**
- * Solves the N Queens problem for a chess board of size N.
+ * Solves the N-Queens problem for a chess board of size N.
  * Each queen should be placed on the board with no other queens attacking it.
  * No 3 queens should form a straight line at any angle.
  */
@@ -32,8 +32,8 @@ public class NQueensBacktrackingSolver implements ChessProblemSolver {
     }
 
     /**
-     * Runs a depth first search approach to find all possible solution to the N-Queens problem.
-     * The algorithm gradually places queens in each column before moving the next.
+     * Runs a depth first search algorithm to find all possible solutions to the N-Queens problem.
+     * The algorithm gradually places queens in each column before moving to the next.
      * For each column, if it finds a solution or doesn't find any valid row placements, it backtracks to the previous
      * state.
      * @param colIndex the current column index to place a piece in
@@ -54,18 +54,17 @@ public class NQueensBacktrackingSolver implements ChessProblemSolver {
     }
 
     /**
-     * Checks whether the given 0-based row and columns indexes are a valid placement
+     * Checks whether the given 0-based row and column indexes are a valid placement
      * @param x1 row index
      * @param y1 column index
      * @return whether the given position is valid
      */
     private boolean isPositionValid(int x1, int y1) {
-        // loop through all possible invalid positions (x2, y2)
+        // loop through all previous valid positions (x2, y2)
         for (int x2 = 0; x2 < board.size(); x2++) {
             for (int y2 = 0; y2 < y1; y2++) {
-                // found a 2nd queen at position (x2, y2)
                 if (board.getPieceAt(x2, y2) == QUEEN) {
-                    // check if the 2nd queen attacks the 1st queen at position (x1, x2)
+                    // check if the queen found at (x2, y2) attacks a queen if placed at (x1, y1)
                     if (x1 + y2 == y1 + x2 || x1 + y1 == x2 + y2 || x1 == x2) {
                         return false;
                     }
@@ -90,11 +89,11 @@ public class NQueensBacktrackingSolver implements ChessProblemSolver {
      * @return whether a 3rd queen forms a straight line with the queens in the given positions
      */
     private boolean isAnyQueenInLine(int x1, int y1, int x2, int y2) {
-        // distance increment to use to check for a possible queen in line with the 1st and 2nd
+        // distance increment used to check for a possible queen in line with the 1st and 2nd
         int dx = x2 - x1;
         int dy = y2 - y1;
 
-        // loop through all positions in the same line as the 1st and 2nd queens
+        // loop through all positions in the same line as the 1st and 2nd queens using row and column increments
         int k = 0;
         while (true) {
             k++;

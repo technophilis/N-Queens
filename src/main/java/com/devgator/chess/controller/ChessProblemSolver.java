@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * An object that provides an algorithm to solve a chess problem.
  * A chess problem is defined by the following: for a given chess board of size N find all chess board states
- * that satisfy a set constraints.
- * A chess board state is a given chess board with a specific placement of pieces on it.
+ * that satisfy a set of constraints.
+ * A state is a given chess board with a specific placement of pieces on it.
  */
 public interface ChessProblemSolver {
 

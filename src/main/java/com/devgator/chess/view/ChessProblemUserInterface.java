@@ -3,7 +3,7 @@ package com.devgator.chess.view;
 import com.devgator.chess.model.ChessBoard;
 
 /**
- * An object that provides a user interface to interface with the user.
+ * An object that provides a user interface to display content to the user.
  */
 public interface ChessProblemUserInterface {
 
