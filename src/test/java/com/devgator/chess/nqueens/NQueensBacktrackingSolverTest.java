@@ -30,8 +30,8 @@ public class NQueensBacktrackingSolverTest {
         assertEquals(0,  solver.findMultipleSolutions(5).size());
         assertEquals(0,  solver.findMultipleSolutions(6).size());
         assertEquals(0,  solver.findMultipleSolutions(7).size());
-        assertEquals(12,  solver.findMultipleSolutions(8).size());
-        assertEquals(38,  solver.findMultipleSolutions(9).size());
+        assertEquals(8,  solver.findMultipleSolutions(8).size());
+        assertEquals(32,  solver.findMultipleSolutions(9).size());
     }
 
     @Test

@@ -90,8 +90,9 @@ public class NQueensBacktrackingSolver implements ChessProblemSolver {
      */
     private boolean isAnyQueenInLine(int x1, int y1, int x2, int y2) {
         // distance increment used to check for a possible queen in line with the 1st and 2nd
-        int dx = x2 - x1;
-        int dy = y2 - y1;
+        int gcd = getGcd(Math.abs(x2 - x1), Math.abs(y2 - y1));
+        int dx = (x2 - x1) / gcd;
+        int dy = (y2 - y1) / gcd;
 
         // loop through all positions in the same line as the 1st and 2nd queens using row and column increments
         int k = 0;
@@ -108,6 +109,21 @@ public class NQueensBacktrackingSolver implements ChessProblemSolver {
         }
 
         return false;
+    }
+
+    /**
+     * Returns the greatest common divisor of the given integer
+     * @param x first integer
+     * @param y second integer
+     * @return greatest common divisor
+     */
+    private int getGcd(int x, int y) {
+        while (y != 0) {
+            int t = y;
+            y = x % y;
+            x = t;
+        }
+        return x;
     }
 
     @Override
